@@ -20,6 +20,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
         release {
 
             minifyEnabled true
@@ -36,6 +37,23 @@ android {
             zipAlignEnabled false
             crunchPngs false
             versionNameSuffix "-debug"
+        }
+        compileOptions{
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        packagingOptions{
+            exclude 'META-INF/LGPL2.1'
+            exclude 'META-INF/LICENSE'
+            exclude 'META-INF/LISENSE.txt'
+            exclude 'META-INF/NOTICE'
+            exclude 'META-INF/NOTICE.txt'
+        }
+        lintOptions{
+            abortOnError false
+            // disable 'InlinedApi', 'AllowBackup'
+            showAll true
+            htmlReport true
         }
     }
 }
